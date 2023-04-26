@@ -26,14 +26,17 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'body' => '',
+            'content' => '',
+            'author_id' => '',
         ]);
 
         $post = new Post([
             'title' => $request->get('title'),
-            'body' => $request->get('body'),
+            'content' => $request->get('content'),
+
         ]);
 
+        $post->author_id = $post->id;
         $post->save();
 
         return redirect('/posts')->with('success', 'Пост успешно создан!');

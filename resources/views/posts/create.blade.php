@@ -6,9 +6,6 @@
             <div class="pull-left">
                 <h2>Создать новый пост</h2>
             </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('posts.index') }}"> Назад</a>
-            </div>
         </div>
     </div>
 
@@ -36,7 +33,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Описание:</strong>
-                    <textarea class="form-control" style="height:150px" name="description"
+                    <textarea class="form-control" style="height:150px" name="content"
                               placeholder="Введите описание"></textarea>
                 </div>
             </div>

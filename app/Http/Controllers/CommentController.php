@@ -17,12 +17,12 @@ class CommentController extends Controller
     public function store(Request $request, Post $post)
     {
         $request->validate([
-            'body' => 'required',
+
         ]);
 
         $comment = new Comment([
-            'content' => $request->get('body'),
-            'post_id' => $post->id,
+            'content' => $request->get('content'),
+            'post_id' => $request->get('post_id')
         ]);
 
         $comment->save();

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [\App\Http\Controllers\PostController::class, 'index'])->name('home');
+Route::get('/', [\App\Http\Controllers\MainController::class, 'index'])->name('home');
 
 Route::resource('posts', \App\Http\Controllers\PostController::class)->except([
     'index'
