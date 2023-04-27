@@ -62,11 +62,11 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'body' => 'required',
+            'content' => 'required',
         ]);
 
         $post->title = $request->get('title');
-        $post->body = $request->get('body');
+        $post->content = $request->get('content');
         $post->save();
 
         return redirect('/posts')->with('success', 'Пост успешно обновлен!');

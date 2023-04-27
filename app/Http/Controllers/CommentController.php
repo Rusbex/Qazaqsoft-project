@@ -17,17 +17,27 @@ class CommentController extends Controller
     public function store(Request $request, Post $post)
     {
         $request->validate([
-
+            'content' => 'required',
+            'image' => 'mimes:jpeg,png,jpg',
+//            'file' => 'file|mimes:png,jpg,jpeg'
         ]);
 
         $comment = new Comment([
             'content' => $request->get('content'),
-            'post_id' => $request->get('post_id')
+            'post_id' => $request->get('post_id'),
+//            'author_id' => auth()->id(),
         ]);
+
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $image->storeAs('public/images', $filename);
+            $comment->image = $filename;
+        }
 
         $comment->save();
 
-        return back()->with('success', 'Комментарий успешно создан!');
+        return redirect()->back()->with('success', 'Комментарий успешно создан!');
     }
 
     // Отображение формы для редактирования комментария
