@@ -20,28 +20,32 @@
         </div>
     @endif
 
-    <form action="{{ route('posts.store') }}" method="POST">
-        @csrf
-
-        <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Заголовок:</strong>
-                    <input type="text" name="title" class="form-control" placeholder="Введите заголовок">
-                </div>
+    <div class="comment-form-wrap pt-5">
+        <h3 class="mb-5">Leave a comment</h3>
+        <form method="POST" enctype="multipart/form-data" action="{{ route('posts.store') }}" class="p-3 p-md-5 bg-light">
+            @csrf
+            <div class="form-group">
+                <label for="title">Заголовок*</label>
+                <input type="text" name="title" class="form-control" placeholder="Введите заголовок">
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Описание:</strong>
-                    <textarea class="form-control" style="height:150px" name="content"
-                              placeholder="Введите описание"></textarea>
-                </div>
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name">
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+            <div class="form-group">
+                <label for="image">Выберете изображение</label>
+                <input type="file" class="form-control" name="image" id="image">
+            </div>
+            <div class="form-group">
+                <label for="content">Описание*</label>
+                <textarea name="content" id="content" class="form-control" placeholder="Ведите коментарий"></textarea>
+            </div>
+            <div class="form-group">
                 <button type="submit" class="btn btn-primary">Создать</button>
             </div>
-        </div>
 
-    </form>
+        </form>
+    </div>
 
 @endsection
+

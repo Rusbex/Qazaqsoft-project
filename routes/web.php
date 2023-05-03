@@ -21,9 +21,9 @@ Route::resource('posts', \App\Http\Controllers\PostController::class)->except([
 
 Route::get('/posts/{posts}/comments/create', [\App\Http\Controllers\CommentController::class, 'create'])->name('comments.create');
 Route::post('/posts/{posts}/comments', [\App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
-Route::get('/posts/{posts}/comments/{comment}/edit', [\App\Http\Controllers\CommentController::class, 'edit'])->name('comments.edit');
-Route::put('/posts/{posts}/comments/{comment}', [\App\Http\Controllers\CommentController::class, 'update'])->name('comments.update');
-Route::delete('/posts/{posts}/comments/{comment}', [\App\Http\Controllers\CommentController::class, 'destroy'])->name('comments.destroy');
+Route::get('/posts/{post}/comments/{comment}/edit', [\App\Http\Controllers\CommentController::class, 'edit'])->name('comments.edit');
+Route::put('/posts/{posts}/comments/{comments}', [\App\Http\Controllers\CommentController::class, 'update'])->name('comments.update');
+Route::delete('/posts/{posts}/comments/{comments}', [\App\Http\Controllers\CommentController::class, 'destroy'])->name('comments.destroy');
 
 Route::get('/posts', [\App\Http\Controllers\PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/create', [\App\Http\Controllers\PostController::class, 'create'])->name('posts.create');

@@ -45,16 +45,14 @@ class CommentController extends Controller
     {
         return view('comments.edit', compact('post', 'comment'));
     }
-
     // Обновление информации о комментарии в базе данных
     public function update(Request $request, Post $post, Comment $comment)
     {
         $request->validate([
-            'body' => 'required',
+            'content' => 'required',
         ]);
 
-        // Обновляем комментарий
-        $comment->body = $request->get('body');
+        $comment->content = $request->get('content');
         $comment->save();
 
         return redirect('/posts/' . $post->id)->with('success', 'Комментарий успешно обновлен!');
